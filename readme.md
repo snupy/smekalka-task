@@ -11,3 +11,8 @@ java -jar smekalka-server.jar
 
 ## Entrypoint
 http://127.0.0.1:8080/api/1/tracks
+
+## Database
+``` bash
+docker run -e POSTGRES_PASSWORD=pass -e POSTGRES_USER=user -e POSTGRES_DB=tracks -p5432:5432 postgres
+```
