@@ -39,13 +39,6 @@ public class TrackController {
                 .orElseGet(() -> {
                     throw new TrackNotFoundException();
                 });
-        /*return TrackDto.builder()
-                .cars(Collections.singletonList(CarDto.builder()
-                        .ai(true)
-                        .maxSpeed(SpeedDto.builder()
-                                .unit(SpeedUnit.METER_PER_SECOND).value(1).build())
-                        .build()))
-                .build();*/
     }
 
     @GetMapping
