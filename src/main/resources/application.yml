@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true # https://github.com/pgjdbc/pgjdbc/issues/1102
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/tracks
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
