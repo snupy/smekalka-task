@@ -1,11 +1,9 @@
 package ru.malik.smekalka.server.domain;
 
 import lombok.*;
+import org.springframework.data.domain.Persistable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Track {
+public class Track implements Persistable<String> {
     @Id
     private String id;
     private String name;
@@ -23,4 +21,17 @@ public class Track {
     private double length;
     @OneToMany
     private List<Car> cars;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @Transient
+    private boolean aNew = true;
+
+    @Override
+    public boolean isNew() {
+        return aNew;
+    }
+
+    public void setNew(boolean aNew) {
+        this.aNew = aNew;
+    }
 }

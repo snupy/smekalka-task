@@ -9,7 +9,10 @@ cd ./target
 java -jar smekalka-server.jar
 ```
 
-## Entrypoint
+## UI
+http://127.0.0.1:8080
+
+## End point
 http://127.0.0.1:8080/api/1/tracks
 
 ## Database

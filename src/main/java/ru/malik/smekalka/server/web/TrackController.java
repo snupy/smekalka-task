@@ -1,6 +1,7 @@
 package ru.malik.smekalka.server.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.malik.smekalka.server.converter.DtoToTrackConverter;
@@ -65,5 +66,11 @@ public class TrackController {
         public TrackNotFoundException() {
             super("track not found");
         }
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public String handleException(DataIntegrityViolationException e) {
+        return e.getMessage();
     }
 }

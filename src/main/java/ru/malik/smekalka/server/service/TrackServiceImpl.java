@@ -22,13 +22,17 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public void add(Track track) {
+        track.getCars().forEach(c -> c.setNew(true));
+        track.setNew(true);
         carRep.saveAll(track.getCars());
         trackRep.save(track);
     }
 
     @Override
     public void update(Track track) {
+        track.getCars().forEach(c -> c.setNew(false));
         carRep.saveAll(track.getCars());
+        track.setNew(false);
         trackRep.save(track);
     }
 
