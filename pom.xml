@@ -80,6 +80,19 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${test-containers.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -126,5 +139,6 @@
         <surefire.version>2.22.0</surefire.version>
         <mockito.version>2.22.0</mockito.version>
         <hamcrest.version>1.3</hamcrest.version>
+        <test-containers.version>1.8.3</test-containers.version>
     </properties>
 </project>
