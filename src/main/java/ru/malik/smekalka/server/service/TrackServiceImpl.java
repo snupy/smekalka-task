@@ -1,5 +1,6 @@
 package ru.malik.smekalka.server.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.malik.smekalka.server.domain.Track;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class TrackServiceImpl implements TrackService {
     private final CarRepository carRep;
     private final TrackRepository trackRep;
@@ -22,6 +24,7 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public void add(Track track) {
+        log.trace("Try add track");
         track.getCars().forEach(c -> c.setNew(true));
         track.setNew(true);
         carRep.saveAll(track.getCars());
@@ -30,6 +33,7 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public void update(Track track) {
+        log.trace("Try update track");
         track.getCars().forEach(c -> c.setNew(false));
         carRep.saveAll(track.getCars());
         track.setNew(false);
@@ -38,11 +42,13 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public List<Track> getAll() {
+        log.trace("Try get all track");
         return trackRep.findAll();
     }
 
     @Override
     public Optional<Track> get(String id) {
+        log.trace("Try get one track");
         return trackRep.findById(id);
     }
 }

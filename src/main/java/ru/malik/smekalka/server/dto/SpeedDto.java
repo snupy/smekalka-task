@@ -11,6 +11,8 @@ import ru.malik.smekalka.server.utils.SpeedUnitJsonSerializer;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Builder
 public class SpeedDto {
     private double value;

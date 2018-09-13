@@ -12,6 +12,8 @@ import ru.malik.smekalka.server.utils.LengthUnitJsonSerializer;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
+@ToString
 public class LengthDto {
     private double value;
     @JsonDeserialize(using = LengthUnitJsonDeserializer.class)

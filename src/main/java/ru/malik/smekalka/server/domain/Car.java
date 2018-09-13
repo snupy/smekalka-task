@@ -11,8 +11,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Car  implements Persistable<String> {
+@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Car implements Persistable<String> {
     @Id
+    @EqualsAndHashCode.Include
     private String id;
     private String code;
     @Enumerated(EnumType.ORDINAL)

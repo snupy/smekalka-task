@@ -14,6 +14,8 @@ import ru.malik.smekalka.server.utils.TransmissionTypeJsonSerializer;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Builder
 public class CarDto {
     private String id;

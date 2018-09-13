@@ -3,9 +3,11 @@ package ru.malik.smekalka.server.domain;
 import lombok.*;
 import org.springframework.data.domain.Persistable;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -13,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Builder
+@ToString
 public class Track implements Persistable<String> {
     @Id
     private String id;
